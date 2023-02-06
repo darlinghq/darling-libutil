@@ -14,6 +14,7 @@ set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -nostdlib")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(util_SRCS
+	expand_number.c
 	ExtentManager.cpp
 	getmntopts.c
 	humanize_number.c
@@ -36,14 +37,16 @@ set_target_properties(util PROPERTIES OUTPUT_NAME "util1.0")
 
 install(TARGETS util DESTINATION libexec/darling/usr/lib)
 install(FILES
-	reexec_to_match_kernel.3
-	realhostname.3
-	humanize_number.3
+	expand_number.3
 	getmntopts.3
-	realhostname_sa.3
+	humanize_number.3
 	pidfile.3
-	wipefs.3
+	realhostname_sa.3
+	realhostname.3
+	reexec_to_match_kernel.3
 	trimdomain.3
+	wipefs.3
+
 	DESTINATION
 		libexec/darling/usr/share/man/man3
 )
